@@ -1,0 +1,16 @@
+main {
+  transition: filter 420ms cubic-bezier(.22,1,.36,1), opacity 420ms ease;
+}
+html[data-page-transition='leave'] main,
+html[data-page-transition='enter'] main {
+  filter: blur(9px);
+  opacity: .65;
+}
+html[data-page-transition='leave'] main {
+  transition-duration: 140ms;
+  pointer-events: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  main { transition: none; }
+  html[data-page-transition] main { filter: none; opacity: 1; }
+}
